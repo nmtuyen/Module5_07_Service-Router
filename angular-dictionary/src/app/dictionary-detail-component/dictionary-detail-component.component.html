@@ -1,0 +1,14 @@
+<!--<h2>Dictionary</h2>-->
+<!--<form [formGroup]="formSearch">-->
+<!--  <div><input type="text" formControlName="word"></div>-->
+<!--  <button type="submit" (click)="searchMean()">Search</button>-->
+<!--</form>-->
+<!--<div>{{searchMean()}}</div>-->
+<ul>
+  <li *ngFor="let word of listWord">
+  <a [routerLink]="['/dictionary', word.key]">
+    {{ word.key}}
+  </a>
+  </li>
+</ul>
+<router-outlet></router-outlet>

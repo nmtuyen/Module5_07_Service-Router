@@ -1,0 +1,22 @@
+<p>product-update works!</p>
+<form [formGroup]="productForm" (ngSubmit)="updateProductById(id)">
+  <table>
+    <tr>
+      <td>Mã SP:</td>
+      <td><input type="number" formControlName="id"></td>
+    </tr>
+    <tr>
+      <td>Tên SP</td>
+      <td><input type="text" formControlName="name" value=""></td>
+    </tr>
+    <tr>
+      <td>Giá:</td>
+      <td><input type="text" formControlName="price"></td>
+    </tr>
+    <tr>
+      <td>Mô tả: </td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+  </table>
+  <button type="submit">Update</button>
+</form>
