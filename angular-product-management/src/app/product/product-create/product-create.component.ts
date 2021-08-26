@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 
 @Component({
@@ -9,12 +9,11 @@ import {ProductService} from '../../service/product.service';
 })
 export class ProductCreateComponent implements OnInit {
   productForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    price: new FormControl(),
-    description: new FormControl(),
+    id: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
   });
-
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
@@ -24,5 +23,4 @@ export class ProductCreateComponent implements OnInit {
     this.productService.saveProduct(product);
     this.productForm.reset();
   }
-
 }

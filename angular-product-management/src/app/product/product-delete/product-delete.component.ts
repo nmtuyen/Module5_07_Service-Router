@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-product-delete',
@@ -13,7 +14,8 @@ export class ProductDeleteComponent implements OnInit {
   productForm: FormGroup;
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
@@ -31,6 +33,7 @@ export class ProductDeleteComponent implements OnInit {
   }
   deleteProduct(id: number) {
     this.productService.deleteById(id);
+    this.router.navigate(['/product/list']);
   }
 
   private getProduct(id: number) {

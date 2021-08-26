@@ -1,0 +1,28 @@
+<!--<h1>Tạo danh mục mới</h1>-->
+<!--<form [formGroup]="categoryForm" (ngSubmit)="submit()">-->
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <td>Mã danh mục:</td>-->
+<!--      <td><input type="number" formControlName="id"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Tên danh mục:</td>-->
+<!--      <td><input type="text" formControlName="name"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td></td>-->
+<!--      <td><button>Tạo mới</button></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</form>-->
+<mat-card class="example-form">
+<form class="example-form" [formGroup]="categoryForm" (ngSubmit)="submit()">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>ID</mat-label>
+    <input type="email" matInput formControlName="id" placeholder="Nhập Id">
+    <mat-error *ngIf="categoryForm.get('id').hasError('required')">
+      Please enter id
+    </mat-error>
+  </mat-form-field>
+</form>
+</mat-card>
